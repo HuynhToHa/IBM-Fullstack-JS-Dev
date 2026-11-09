@@ -25,10 +25,14 @@ const endTest = () => {
 
   // Calculate time elapsed and words per minute (WPM)
   var timeElapsed = (endTime - startTime) / 1000; // in seconds
-  var userTypedtext = document.getElementById("userInput").value;
+  var userTypedText = document.getElementById("userInput").value;
+
+  // Calculate the total length of text which you have capturted in variable userTypedText that user has entered. For this you need to utilize:
+  // length property to check the length of entire text using variable userTypedText.
+  var userTypedTextLength = userTypedText.length;
 
   // Split the text using regex to count words correctly
-  var typedWords = userTypedtext.split(/\s+/).filter((word) => {
+  var typedWords = userTypedText.split(/\s+/).filter((word) => {
     return word !== "";
   }).length;
 
@@ -42,6 +46,9 @@ const endTest = () => {
   var outputDiv = document.getElementById("output");
   outputDiv.innerHTML =
     "<h2>Typing Test Results:</h2>" +
+    "<p>Total Length: " +
+    userTypedTextLength +
+    "</p>" +
     "<p>Words Typed: " +
     typedWords +
     "</p>" +
